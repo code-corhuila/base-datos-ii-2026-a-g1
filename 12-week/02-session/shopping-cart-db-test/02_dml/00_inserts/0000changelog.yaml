@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: 9ec09d36-0d2b-42b1-b722-a014da3f0c59
+      author: ariel5253
+      labels: "insert data,dml,role,security"
+      comment: "Inserts the baseline roles into the security schema."
+      changes:
+        - sqlFile:
+            path: 001_insert_role.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/001_insert_role.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: a9f9bb0e-bded-4826-91fe-9a2ced823452
+      author: ariel5253
+      labels: "insert data,dml,continent,security"
+      comment: "Inserts the baseline continents into the ubication schema."
+      changes:
+        - sqlFile:
+            path: 002_insert_continent.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/02_dml/00_inserts/002_insert_continent.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
